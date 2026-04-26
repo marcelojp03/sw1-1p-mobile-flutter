@@ -103,7 +103,7 @@ class HomeScreen extends ConsumerWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: AppTheme.primaryColor.withOpacity(0.3),
+                color: AppTheme.primaryColor.withValues(alpha: 0.3),
                 blurRadius: 16,
                 offset: const Offset(0, 6),
               ),
@@ -136,7 +136,7 @@ class HomeScreen extends ConsumerWidget {
               Container(
                 padding: EdgeInsets.all(res.spacing(10)),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -213,17 +213,17 @@ class _QuickActionCard extends StatelessWidget {
           horizontal: res.spacing(8),
         ),
         decoration: BoxDecoration(
-          color: isDark ? Colors.white.withOpacity(0.05) : Colors.white,
+          color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.white,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color:
                 isDark
-                    ? Colors.white.withOpacity(0.06)
-                    : Colors.black.withOpacity(0.05),
+                    ? Colors.white.withValues(alpha: 0.06)
+                    : Colors.black.withValues(alpha: 0.05),
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(isDark ? 0.15 : 0.06),
+              color: Colors.black.withValues(alpha: isDark ? 0.15 : 0.06),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -234,7 +234,7 @@ class _QuickActionCard extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(res.spacing(8)),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.12),
+                color: color.withValues(alpha: 0.12),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, color: color, size: res.iconSize(20)),
@@ -273,13 +273,13 @@ class _ProcedureSummaryTile extends StatelessWidget {
         margin: EdgeInsets.only(bottom: res.spacing(10)),
         padding: EdgeInsets.all(res.spacing(14)),
         decoration: BoxDecoration(
-          color: isDark ? Colors.white.withOpacity(0.05) : Colors.white,
+          color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color:
                 isDark
-                    ? Colors.white.withOpacity(0.06)
-                    : Colors.black.withOpacity(0.05),
+                    ? Colors.white.withValues(alpha: 0.06)
+                    : Colors.black.withValues(alpha: 0.05),
           ),
         ),
         child: Row(
@@ -320,7 +320,7 @@ class _ProcedureSummaryTile extends StatelessWidget {
                 vertical: res.spacing(4),
               ),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.12),
+                color: color.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Text(

@@ -126,11 +126,11 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
                       ),
                       radius: 2.0,
                       colors: [
-                        currentGradient.colors.first.withOpacity(
-                          widget.intensity * 0.3,
+                        currentGradient.colors.first.withValues(
+                          alpha: widget.intensity * 0.3,
                         ),
-                        currentGradient.colors.last.withOpacity(
-                          widget.intensity * 0.1,
+                        currentGradient.colors.last.withValues(
+                          alpha: widget.intensity * 0.1,
                         ),
                         Colors.transparent,
                       ],
@@ -158,7 +158,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
               width: res.dp(0.4) + (index % 3) * res.dp(0.2),
               height: res.dp(0.4) + (index % 3) * res.dp(0.2),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
+                color: Colors.white.withValues(alpha: 0.3),
                 shape: BoxShape.circle,
               ),
             )

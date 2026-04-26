@@ -112,22 +112,24 @@ class _NotificationTile extends StatelessWidget {
         decoration: BoxDecoration(
           color:
               isUnread
-                  ? AppTheme.primaryColor.withOpacity(0.06)
-                  : (isDark ? Colors.white.withOpacity(0.03) : Colors.white),
+                  ? AppTheme.primaryColor.withValues(alpha: 0.06)
+                  : (isDark
+                      ? Colors.white.withValues(alpha: 0.03)
+                      : Colors.white),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color:
                 isUnread
-                    ? AppTheme.primaryColor.withOpacity(0.2)
+                    ? AppTheme.primaryColor.withValues(alpha: 0.2)
                     : (isDark
-                        ? Colors.white.withOpacity(0.05)
-                        : Colors.black.withOpacity(0.05)),
+                        ? Colors.white.withValues(alpha: 0.05)
+                        : Colors.black.withValues(alpha: 0.05)),
           ),
           boxShadow:
               isUnread
                   ? [
                     BoxShadow(
-                      color: AppTheme.primaryColor.withOpacity(0.06),
+                      color: AppTheme.primaryColor.withValues(alpha: 0.06),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -141,7 +143,7 @@ class _NotificationTile extends StatelessWidget {
               padding: EdgeInsets.all(res.spacing(8)),
               decoration: BoxDecoration(
                 color: (isUnread ? AppTheme.primaryColor : AppTheme.grey1)
-                    .withOpacity(0.1),
+                    .withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(

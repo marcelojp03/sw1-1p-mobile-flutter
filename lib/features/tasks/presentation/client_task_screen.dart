@@ -158,9 +158,9 @@ class _ClientTaskScreenState extends ConsumerState<ClientTaskScreen> {
     return Container(
       padding: EdgeInsets.all(res.spacing(14)),
       decoration: BoxDecoration(
-        color: isDark ? Colors.white.withOpacity(0.05) : Colors.white,
+        color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.white,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppTheme.warningColor.withOpacity(0.3)),
+        border: Border.all(color: AppTheme.warningColor.withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -296,13 +296,14 @@ class _ClientTaskScreenState extends ConsumerState<ClientTaskScreen> {
     return Container(
       padding: EdgeInsets.all(res.spacing(14)),
       decoration: BoxDecoration(
-        color: isDark ? Colors.white.withOpacity(0.04) : Colors.grey.shade50,
+        color:
+            isDark ? Colors.white.withValues(alpha: 0.04) : Colors.grey.shade50,
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color:
               isDark
-                  ? Colors.white.withOpacity(0.08)
-                  : Colors.black.withOpacity(0.07),
+                  ? Colors.white.withValues(alpha: 0.08)
+                  : Colors.black.withValues(alpha: 0.07),
         ),
       ),
       child: Column(
@@ -619,11 +620,11 @@ class _AttachmentChip extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: (isLocal ? AppTheme.warningColor : AppTheme.successColor)
-            .withOpacity(0.08),
+            .withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
           color: (isLocal ? AppTheme.warningColor : AppTheme.successColor)
-              .withOpacity(0.25),
+              .withValues(alpha: 0.25),
         ),
       ),
       child: Row(

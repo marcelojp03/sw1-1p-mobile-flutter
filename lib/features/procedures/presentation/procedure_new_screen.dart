@@ -101,9 +101,9 @@ class _ProcedureNewScreenState extends ConsumerState<ProcedureNewScreen> {
                   decoration: BoxDecoration(
                     color:
                         isSelected
-                            ? AppTheme.primaryColor.withOpacity(0.08)
+                            ? AppTheme.primaryColor.withValues(alpha: 0.08)
                             : (isDark
-                                ? Colors.white.withOpacity(0.05)
+                                ? Colors.white.withValues(alpha: 0.05)
                                 : Colors.white),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
@@ -111,8 +111,8 @@ class _ProcedureNewScreenState extends ConsumerState<ProcedureNewScreen> {
                           isSelected
                               ? AppTheme.primaryColor
                               : (isDark
-                                  ? Colors.white.withOpacity(0.06)
-                                  : Colors.black.withOpacity(0.06)),
+                                  ? Colors.white.withValues(alpha: 0.06)
+                                  : Colors.black.withValues(alpha: 0.06)),
                       width: isSelected ? 1.5 : 1,
                     ),
                   ),
@@ -124,7 +124,7 @@ class _ProcedureNewScreenState extends ConsumerState<ProcedureNewScreen> {
                           color: (isSelected
                                   ? AppTheme.primaryColor
                                   : AppTheme.grey1)
-                              .withOpacity(0.12),
+                              .withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(

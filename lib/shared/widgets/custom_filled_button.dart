@@ -55,8 +55,8 @@ class CustomFilledButton extends StatelessWidget {
                             ? AppTheme.primaryGradient
                             : LinearGradient(
                               colors: [
-                                AppTheme.primaryColor.withOpacity(0.5),
-                                AppTheme.secondaryColor.withOpacity(0.5),
+                                AppTheme.primaryColor.withValues(alpha: 0.5),
+                                AppTheme.secondaryColor.withValues(alpha: 0.5),
                               ],
                             ),
                     borderRadius: BorderRadius.circular(12),

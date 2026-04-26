@@ -182,12 +182,12 @@ class _StatusCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(res.spacing(16)),
       decoration: BoxDecoration(
-        color: isDark ? Colors.white.withOpacity(0.05) : Colors.white,
+        color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
         boxShadow: [
           BoxShadow(
-            color: color.withOpacity(0.1),
+            color: color.withValues(alpha: 0.1),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -213,7 +213,7 @@ class _StatusCard extends StatelessWidget {
                   vertical: res.spacing(5),
                 ),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.12),
+                  color: color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -286,9 +286,11 @@ class _TaskTile extends StatelessWidget {
         margin: EdgeInsets.only(bottom: res.spacing(8)),
         padding: EdgeInsets.all(res.spacing(12)),
         decoration: BoxDecoration(
-          color: AppTheme.warningColor.withOpacity(0.06),
+          color: AppTheme.warningColor.withValues(alpha: 0.06),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppTheme.warningColor.withOpacity(0.3)),
+          border: Border.all(
+            color: AppTheme.warningColor.withValues(alpha: 0.3),
+          ),
         ),
         child: Row(
           children: [
@@ -351,7 +353,7 @@ class _HistoryTile extends StatelessWidget {
               if (!isLast)
                 Container(
                   width: 1.5,
-                  color: AppTheme.primaryColor.withOpacity(0.25),
+                  color: AppTheme.primaryColor.withValues(alpha: 0.25),
                   height: double.infinity,
                 ),
             ],

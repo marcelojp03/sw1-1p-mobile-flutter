@@ -87,52 +87,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Widget _buildHeader(BuildContext context, Responsive res) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-              width: res.dp(5),
-              height: res.dp(5),
-              decoration: BoxDecoration(
-                gradient: AppTheme.primaryGradient,
-                borderRadius: BorderRadius.circular(res.dp(1.2)),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppTheme.primaryColor.withOpacity(0.35),
-                    blurRadius: 24,
-                    spreadRadius: 2,
-                    offset: const Offset(0, 6),
-                  ),
-                ],
-              ),
-              child: Icon(
-                Icons.account_tree_rounded,
-                color: Colors.white,
-                size: res.dp(2.2),
-              ),
-            )
+        Image.asset('assets/images/workflow-ai-banner.png', width: res.wp(60))
             .animate()
             .fadeIn(delay: 100.ms, duration: 500.ms)
             .scale(
-              begin: const Offset(0.7, 0.7),
+              begin: const Offset(0.85, 0.85),
               end: const Offset(1.0, 1.0),
               curve: Curves.elasticOut,
             ),
-        SizedBox(height: res.spacing(20)),
-        Text(
-              'Workflow System',
-              style: TextStyle(
-                fontSize: res.fontSize(26),
-                fontWeight: FontWeight.bold,
-                color: isDark ? Colors.white : AppTheme.bodyFontColor,
-              ),
-            )
-            .animate()
-            .fadeIn(delay: 200.ms, duration: 400.ms)
-            .slideY(begin: 0.15, end: 0, curve: Curves.fastOutSlowIn),
-        SizedBox(height: res.spacing(6)),
+        SizedBox(height: res.spacing(16)),
         Text(
           'Inicia sesión para continuar',
           style: TextStyle(fontSize: res.fontSize(14), color: AppTheme.grey1),
@@ -155,18 +121,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 decoration: BoxDecoration(
                   color:
                       isDark
-                          ? Colors.white.withOpacity(0.06)
-                          : Colors.white.withOpacity(0.85),
+                          ? Colors.white.withValues(alpha: 0.06)
+                          : Colors.white.withValues(alpha: 0.85),
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(
                     color:
                         isDark
-                            ? Colors.white.withOpacity(0.08)
-                            : Colors.black.withOpacity(0.06),
+                            ? Colors.white.withValues(alpha: 0.08)
+                            : Colors.black.withValues(alpha: 0.06),
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(isDark ? 0.2 : 0.08),
+                      color: Colors.black.withValues(
+                        alpha: isDark ? 0.2 : 0.08,
+                      ),
                       blurRadius: 20,
                       offset: const Offset(0, 8),
                     ),

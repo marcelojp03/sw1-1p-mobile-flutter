@@ -40,7 +40,7 @@ class LoadingWidget extends StatelessWidget {
             height: res.dp(3.5),
             padding: EdgeInsets.all(res.spacing(10)),
             decoration: BoxDecoration(
-              color: AppTheme.primaryColor.withOpacity(0.1),
+              color: AppTheme.primaryColor.withValues(alpha: 0.1),
               shape: BoxShape.circle,
             ),
             child: CircularProgressIndicator(
@@ -72,9 +72,9 @@ class LoadingWidget extends StatelessWidget {
     final res = context.responsive;
 
     final baseColor =
-        isDark ? Colors.white.withOpacity(0.06) : const Color(0xFFE8ECF0);
+        isDark ? Colors.white.withValues(alpha: 0.06) : const Color(0xFFE8ECF0);
     final highlightColor =
-        isDark ? Colors.white.withOpacity(0.12) : const Color(0xFFF5F7FA);
+        isDark ? Colors.white.withValues(alpha: 0.12) : const Color(0xFFF5F7FA);
 
     return SizedBox(
       height: height,
@@ -109,7 +109,7 @@ class _ShimmerCard extends StatelessWidget {
       margin: EdgeInsets.only(bottom: res.spacing(12)),
       padding: EdgeInsets.all(res.spacing(14)),
       decoration: BoxDecoration(
-        color: isDark ? Colors.white.withOpacity(0.05) : Colors.white,
+        color: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.white,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Column(
