@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sw1_p1/config/theme/app_theme.dart';
 import 'package:sw1_p1/features/auth/providers/auth_provider.dart';
+import 'package:sw1_p1/features/notifications/providers/notifications_provider.dart';
 import 'package:sw1_p1/features/procedures/providers/procedures_provider.dart';
 import 'package:sw1_p1/shared/utils/responsive.dart';
 import 'package:sw1_p1/shared/widgets/loading_widget.dart';
@@ -32,7 +33,11 @@ class HomeScreen extends ConsumerWidget {
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: () async => ref.invalidate(proceduresSummaryProvider),
+        onRefresh: () async {
+          ref.invalidate(proceduresSummaryProvider);
+          ref.invalidate(unreadCountProvider);
+          await ref.read(proceduresSummaryProvider.future).catchError((_) {});
+        },
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
           padding: EdgeInsets.all(res.spacing(16)),

@@ -50,12 +50,12 @@ class AppShell extends ConsumerWidget {
           NavigationDestination(
             icon: _BadgedIcon(
               icon: const Icon(Icons.notifications_outlined),
-              count: unreadAsync.value ?? 0,
+              count: unreadAsync.valueOrNull ?? 0,
               res: res,
             ),
             selectedIcon: _BadgedIcon(
               icon: const Icon(Icons.notifications_rounded),
-              count: unreadAsync.value ?? 0,
+              count: unreadAsync.valueOrNull ?? 0,
               res: res,
             ),
             label: 'Notificaciones',

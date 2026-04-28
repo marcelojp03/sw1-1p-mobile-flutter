@@ -26,7 +26,10 @@ class ProceduresScreen extends ConsumerWidget {
         foregroundColor: Colors.white,
       ),
       body: RefreshIndicator(
-        onRefresh: () async => ref.invalidate(proceduresSummaryProvider),
+        onRefresh: () async {
+          ref.invalidate(proceduresSummaryProvider);
+          await ref.read(proceduresSummaryProvider.future).catchError((_) {});
+        },
         child: proceduresAsync.when(
           loading:
               () => const LoadingWidget(useShimmer: true, shimmerItemCount: 6),
