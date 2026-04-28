@@ -28,22 +28,23 @@ class HomeScreen extends ConsumerWidget {
             onPressed: () async {
               final confirm = await showDialog<bool>(
                 context: context,
-                builder: (ctx) => AlertDialog(
-                  title: const Text('Cerrar sesión'),
-                  content: const Text(
-                    '¿Estás seguro que deseas cerrar sesión?',
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.of(ctx).pop(false),
-                      child: const Text('Cancelar'),
+                builder:
+                    (ctx) => AlertDialog(
+                      title: const Text('Cerrar sesión'),
+                      content: const Text(
+                        '¿Estás seguro que deseas cerrar sesión?',
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(ctx).pop(false),
+                          child: const Text('Cancelar'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.of(ctx).pop(true),
+                          child: const Text('Cerrar sesión'),
+                        ),
+                      ],
                     ),
-                    TextButton(
-                      onPressed: () => Navigator.of(ctx).pop(true),
-                      child: const Text('Cerrar sesión'),
-                    ),
-                  ],
-                ),
               );
               if (confirm == true) {
                 await ref.read(authProvider.notifier).logout();
