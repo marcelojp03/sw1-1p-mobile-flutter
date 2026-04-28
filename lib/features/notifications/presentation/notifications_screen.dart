@@ -21,6 +21,9 @@ class NotificationsScreen extends ConsumerWidget {
         onRefresh: () async {
           ref.invalidate(notificationsProvider);
           ref.invalidate(unreadCountProvider);
+          try {
+            await ref.read(notificationsProvider.future);
+          } catch (_) {}
         },
         child: notificationsAsync.when(
           loading:

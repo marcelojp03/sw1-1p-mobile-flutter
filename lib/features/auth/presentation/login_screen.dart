@@ -65,20 +65,23 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final isLoading = authState.status == AuthStatus.checking;
 
     return Scaffold(
-      body: AnimatedBackground(
-        style: BackgroundStyle.aurora,
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: res.spacing(24)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SizedBox(height: res.hp(8)),
-                _buildHeader(context, res),
-                SizedBox(height: res.spacing(40)),
-                _buildForm(context, res, isLoading),
-                SizedBox(height: res.hp(4)),
-              ],
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: AnimatedBackground(
+          style: BackgroundStyle.aurora,
+          child: SafeArea(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: res.spacing(24)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: res.hp(8)),
+                  _buildHeader(context, res),
+                  SizedBox(height: res.spacing(40)),
+                  _buildForm(context, res, isLoading),
+                  SizedBox(height: res.hp(4)),
+                ],
+              ),
             ),
           ),
         ),

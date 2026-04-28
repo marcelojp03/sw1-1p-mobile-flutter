@@ -26,8 +26,29 @@ class HomeScreen extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.logout_rounded),
             onPressed: () async {
-              await ref.read(authProvider.notifier).logout();
-              if (context.mounted) context.go('/login');
+              final confirm = await showDialog<bool>(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: const Text('Cerrar sesión'),
+                  content: const Text(
+                    '¿Estás seguro que deseas cerrar sesión?',
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(ctx).pop(false),
+                      child: const Text('Cancelar'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.of(ctx).pop(true),
+                      child: const Text('Cerrar sesión'),
+                    ),
+                  ],
+                ),
+              );
+              if (confirm == true) {
+                await ref.read(authProvider.notifier).logout();
+                if (context.mounted) context.go('/login');
+              }
             },
           ),
         ],
@@ -36,7 +57,9 @@ class HomeScreen extends ConsumerWidget {
         onRefresh: () async {
           ref.invalidate(proceduresSummaryProvider);
           ref.invalidate(unreadCountProvider);
-          await ref.read(proceduresSummaryProvider.future).catchError((_) {});
+          try {
+            await ref.read(proceduresSummaryProvider.future);
+          } catch (_) {}
         },
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
